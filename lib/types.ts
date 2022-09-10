@@ -90,7 +90,6 @@ export interface PlaylistData extends Omit<Playlist, "playlistImage | playlistUr
 }
 
 // Github
-
 export interface Repository {
   id: string;
   fullName: string;
@@ -114,3 +113,8 @@ export interface RepositoryData {
 export type Repositories = {
   repositories: Repository[];
 };
+
+// Views
+export interface Views {
+  total: string;
+}

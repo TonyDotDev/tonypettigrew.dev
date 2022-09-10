@@ -3,6 +3,7 @@ import { parseISO, format } from "date-fns";
 import Image from "next/future/image";
 
 import Container, { CustomMeta } from "components/Container";
+import BlogViewCounter from "components/BlogViewCounter";
 import { Post } from "lib/types";
 
 interface Props {
@@ -40,6 +41,8 @@ export default function BlogLayout({ children, post }: Props) {
           </div>
           <p className='mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0'>
             {post.readingTime}
+            {` • `}
+            <BlogViewCounter slug={post.slug} />
           </p>
         </div>
         <Suspense fallback={null}>
