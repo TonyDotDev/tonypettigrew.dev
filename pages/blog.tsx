@@ -3,7 +3,7 @@ import { InferGetStaticPropsType, GetStaticProps } from "next";
 
 import Container, { CustomMeta } from "components/Container";
 import BlogPost from "components/BlogPost";
-import { indexQuery } from "lib/queries";
+import { postsQuery } from "lib/queries";
 import { getClient } from "lib/sanity-server";
 import { Post } from "lib/types";
 
@@ -67,7 +67,7 @@ export default function Blog({ posts }: InferGetStaticPropsType<typeof getStatic
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const posts: Post[] = await getClient(preview).fetch(indexQuery);
+  const posts: Post[] = await getClient(preview).fetch(postsQuery);
 
   return { props: { posts } };
 };
