@@ -84,6 +84,11 @@ export default createConfig({
             type: "image",
           },
           {
+            name: "date",
+            title: "Date",
+            type: "datetime",
+          },
+          {
             name: "categories",
             title: "Categories",
             type: "array",

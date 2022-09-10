@@ -19,8 +19,13 @@ export const postQuery = `
   }
 }`;
 
-export const indexQuery = `
+export const postsQuery = `
 *[_type == "post"] | order(date desc, _updatedAt desc) {
+  ${postFields}
+}`;
+
+export const limitedPostsQuery = `
+*[_type == "post"] | order(date desc, _updatedAt desc) [$from..$to] {
   ${postFields}
 }`;
 
@@ -38,9 +43,21 @@ export const allSnippetsQuery = `
   ${snippetFields}
 }`;
 
+export const limitedSnippetsQuery = `
+*[_type == "snippet"] | order(date desc, _updatedAt desc) [$from..$to] {
+  ${snippetFields}
+}`;
+
 export const snippetsQuery = `
 {
   "snippet": *[_type == "snippet" && slug.current == $slug] | order(_updatedAt desc) [0] {
+    content,
+    ${snippetFields}
+  }
+}`;
+
+export const mostRecentSnippet = `{
+  "snippet": *[_type == "snippet"] | order(_createdAt desc) [0] {
     content,
     ${snippetFields}
   }

@@ -5,7 +5,9 @@ import fetcher from "lib/fetcher";
 import { Repositories } from "lib/types";
 
 export default function FeaturedRepositories() {
-  const { data } = useSWR<Repositories>("/api/featured-repos", fetcher);
+  const { data } = useSWR<Repositories>("/api/featured-repos", fetcher, {
+    dedupingInterval: 1000 * 60,
+  });
 
   if (!data) {
     return null;
