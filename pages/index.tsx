@@ -1,13 +1,23 @@
 import { Suspense } from "react";
 import Image from "next/future/image";
+import type { GetStaticProps } from "next";
 
-import type { NextPage } from "next";
 import Container from "components/Container";
 import SpotifyPlaylists from "components/SpotifyPlaylists";
 import FeaturedRepositories from "components/FeaturedRepositories";
-import SnippetOfTheWeek from "components/SnippetOfTheWeek";
+import { getClient } from "lib/sanity-server";
+import { limitedSnippetsQuery, limitedPostsQuery } from "lib/queries";
+import { mdxToHtml } from "lib/mdx";
+import { Snippet, Post } from "lib/types";
+import BlogPosts from "components/BlogPosts";
+import Snippets from "components/Snippets";
 
-const Home: NextPage = () => {
+interface Props {
+  snippets: Snippet[];
+  posts: Post[];
+}
+
+export default function Home({ snippets, posts }: Props) {
   return (
     <Suspense fallback={null}>
       <Container>
@@ -41,15 +51,21 @@ const Home: NextPage = () => {
           <div className='space-y-20'>
             <section>
               <h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white'>
-                Snippet Of The Week
-              </h3>
-              <SnippetOfTheWeek />
-            </section>
-            <section>
-              <h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white'>
                 Featured Repositories
               </h3>
               <FeaturedRepositories />
+            </section>
+            <section>
+              <h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white'>
+                Popular Blog Posts
+              </h3>
+              <BlogPosts posts={posts} />
+            </section>
+            <section>
+              <h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white'>
+                Newest Snippets
+              </h3>
+              <Snippets snippets={snippets} />
             </section>
             <section>
               <h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white'>
@@ -62,6 +78,19 @@ const Home: NextPage = () => {
       </Container>
     </Suspense>
   );
-};
+}
 
-export default Home;
+export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+  const snippets: Snippet[] = await getClient(preview).fetch(limitedSnippetsQuery, {
+    from: 0,
+    to: 1,
+  });
+  const posts: Post[] = await getClient(preview).fetch(limitedPostsQuery, { from: 0, to: 2 });
+
+  return {
+    props: {
+      snippets: snippets || [],
+      posts: posts || [],
+    },
+  };
+};

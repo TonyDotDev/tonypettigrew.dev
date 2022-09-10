@@ -10,12 +10,12 @@ interface Props {
   slug: string;
   description: string;
   categories: Category[];
-  handleClick: HandleCategoryBadgeClick;
+  handleClick?: HandleCategoryBadgeClick;
 }
 
 export default function CodeSnippet({ title, slug, description, categories, handleClick }: Props) {
   return (
-    <div className='w-full'>
+    <div className='w-full border rounded p-4'>
       <div className='w-full '>
         <Link href={`/snippets/${slug}`} className='flex flex-col justify-between md:flex-row'>
           <a>

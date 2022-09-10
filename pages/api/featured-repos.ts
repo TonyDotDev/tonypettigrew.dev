@@ -6,7 +6,11 @@ export const config = {
   runtime: "experimental-edge",
 };
 
-const repositoryNames: string[] = ["express-ts-boilerplate", "generator-react-tsx-component"];
+const repositoryNames: string[] = [
+  "tonypettigrew.dev",
+  "express-ts-boilerplate",
+  "generator-react-tsx-component",
+];
 
 export default async function handler(req: NextRequest) {
   const responses: RepositoryData[] = await Promise.all(
