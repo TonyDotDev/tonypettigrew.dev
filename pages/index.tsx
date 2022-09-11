@@ -5,12 +5,12 @@ import type { GetStaticProps } from "next";
 import Container from "components/Container";
 import SpotifyPlaylists from "components/SpotifyPlaylists";
 import FeaturedRepositories from "components/FeaturedRepositories";
-import { getClient } from "lib/sanity-server";
-import { limitedSnippetsQuery, limitedPostsQuery } from "lib/queries";
-import { mdxToHtml } from "lib/mdx";
-import { Snippet, Post } from "lib/types";
 import BlogPosts from "components/BlogPosts";
 import Snippets from "components/Snippets";
+import { getClient } from "lib/sanity-server";
+import { limitedSnippetsQuery, threePostsQuery } from "lib/queries";
+import { Snippet, Post } from "lib/types";
+import prisma from "lib/prisma";
 
 interface Props {
   snippets: Snippet[];
@@ -85,12 +85,27 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     from: 0,
     to: 1,
   });
-  const posts: Post[] = await getClient(preview).fetch(limitedPostsQuery, { from: 0, to: 2 });
+
+  const topThreeSlugs = await(
+    await prisma.views.findMany({ orderBy: [{ count: "desc" }], take: 3 })
+  ).map((post) => post.slug);
+
+  const posts: Post[] = await getClient(preview).fetch(threePostsQuery, {
+    slug_1: topThreeSlugs[0],
+    slug_2: topThreeSlugs[1],
+    slug_3: topThreeSlugs[2],
+  });
+
+  const orderedPosts = posts.map((_post, index) => {
+    const slug = topThreeSlugs[index];
+    const post = posts.find((post) => post.slug === slug);
+    return post;
+  });
 
   return {
     props: {
       snippets: snippets || [],
-      posts: posts || [],
+      posts: orderedPosts || [],
     },
   };
 };
