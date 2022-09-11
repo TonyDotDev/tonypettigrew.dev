@@ -10,14 +10,6 @@
   src: url(/fonts/albert-sans-var.ttf) format("truetype");
 }
 
-@font-face {
-  font-family: "Albert Sans";
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: optional;
-  src: url(/fonts/albert-sans-var.ttf) format("truetype");
-}
-
 ::selection {
   background-color: #47a3f3;
   color: #fefefe;
