@@ -10,6 +10,19 @@ const nextConfig = {
       allowFutureImage: true,
     },
   },
+  async headers() {
+    return [
+      {
+        source: "/fonts/albert-sans-var.ttf",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
