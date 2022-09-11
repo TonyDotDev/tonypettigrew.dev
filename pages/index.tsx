@@ -3,7 +3,6 @@ import Image from "next/future/image";
 import type { GetStaticProps } from "next";
 
 import Container from "components/Container";
-import SpotifyPlaylists from "components/SpotifyPlaylists";
 import FeaturedRepositories from "components/FeaturedRepositories";
 import BlogPosts from "components/BlogPosts";
 import Snippets from "components/Snippets";
@@ -67,12 +66,6 @@ export default function Home({ snippets, posts }: Props) {
               </h3>
               <Snippets snippets={snippets} />
             </section>
-            <section>
-              <h3 className='font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white'>
-                My Playlists
-              </h3>
-              <SpotifyPlaylists />
-            </section>
           </div>
         </div>
       </Container>
@@ -86,7 +79,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     to: 1,
   });
 
-  const topThreeSlugs = await(
+  const topThreeSlugs = await (
     await prisma.views.findMany({ orderBy: [{ count: "desc" }], take: 3 })
   ).map((post) => post.slug);
 

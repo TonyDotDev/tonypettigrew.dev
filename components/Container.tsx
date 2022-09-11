@@ -80,6 +80,7 @@ export default function Container({ customMeta = {}, children }: Props) {
             <NavItem href='/projects' text='Projects' />
             <NavItem href='/blog' text='Blog' />
             <NavItem href='/snippets' text='Snippets' />
+            <NavItem href='/dashboard' text='Dashboard' />
           </div>
           <DarkModeToggle />
         </nav>
