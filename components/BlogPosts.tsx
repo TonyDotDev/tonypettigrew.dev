@@ -9,7 +9,7 @@ interface Props {
 export default function BlogPosts({ posts }: Props) {
   return (
     <div className='flex flex-col space-y-6'>
-      <div className='flex flex-col space-y-4'>
+      <div className='flex flex-col space-y-8'>
         {posts.map((post) => (
           <BlogPost key={post._id} {...post} />
         ))}

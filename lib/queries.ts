@@ -24,6 +24,12 @@ export const postsQuery = `
   ${postFields}
 }`;
 
+export const threePostsQuery = `
+*[_type == "post" && (slug.current == $slug_1 || slug.current == $slug_2 || slug.current == $slug_3)] {
+  ${postFields}
+}
+`;
+
 export const limitedPostsQuery = `
 *[_type == "post"] | order(date desc, _updatedAt desc) [$from..$to] {
   ${postFields}
