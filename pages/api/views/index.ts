@@ -9,7 +9,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     });
 
-    return res.status(200).json(totalViewCount._sum.count?.toString());
+    return res.status(200).json({ total: totalViewCount._sum.count?.toString() });
   } catch (e: any) {
     return res.status(500).json({ message: e?.message || "Server error" });
   }
