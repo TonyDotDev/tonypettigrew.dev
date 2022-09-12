@@ -3,6 +3,7 @@ import SpotifyPlaylists from "components/SpotifyPlaylists";
 import BlogViews from "components/metrics/BlogViews";
 import SnippetViews from "components/metrics/SnippetViews";
 import Github from "components/metrics/Github";
+import ContributionGraph from "components/metrics/ContributionGraph";
 
 export default function dashboard() {
   const customMeta: CustomMeta = {
@@ -36,6 +37,10 @@ export default function dashboard() {
           <SnippetViews />
         </div>
         <Github />
+        <h2 className='font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white'>
+          Github Contributions
+        </h2>
+        <ContributionGraph />
         <h2 className='font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white'>
           My Playlists
         </h2>

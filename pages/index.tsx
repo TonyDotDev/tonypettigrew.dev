@@ -30,9 +30,8 @@ export default function Home({ snippets, posts }: Props) {
                 Software Engineer focused on <span className='font-semibold'>JavaScript</span>
               </h2>
               <p className='text-gray-600 dark:text-gray-400 mb-16'>
-                Enthusiastically sharing my knowledge and experience in the industry. When I&apos;m
-                not working, I create Spotify playlists for every occasion and go to as many
-                sporting and music events as possible.
+                Enthusiastically sharing my knowledge and experience in the industry through blogs
+                and code snippets.
               </p>
             </div>
             <div className='w-[80px] sm:w-[176px] relative mb-8 sm:mb-0 mr-auto'>
