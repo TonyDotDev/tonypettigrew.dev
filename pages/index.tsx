@@ -88,11 +88,13 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     slug_3: topThreeSlugs[2] || "",
   });
 
-  const orderedPosts = posts.map((_post, index) => {
-    const slug = topThreeSlugs[index];
-    const post = posts.find((post) => post.slug === slug);
-    return post;
-  });
+  const orderedPosts = posts
+    .map((_post, index) => {
+      const slug = topThreeSlugs[index];
+      const post = posts.find((post) => post.slug === slug);
+      return post;
+    })
+    .filter((post) => !!post);
 
   return {
     props: {
