@@ -2,6 +2,7 @@ import Container, { CustomMeta } from "components/Container";
 import SpotifyPlaylists from "components/SpotifyPlaylists";
 import BlogViews from "components/metrics/BlogViews";
 import SnippetViews from "components/metrics/SnippetViews";
+import Github from "components/metrics/Github";
 
 export default function dashboard() {
   const customMeta: CustomMeta = {
@@ -34,6 +35,7 @@ export default function dashboard() {
           <BlogViews />
           <SnippetViews />
         </div>
+        <Github />
         <h2 className='font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white'>
           My Playlists
         </h2>

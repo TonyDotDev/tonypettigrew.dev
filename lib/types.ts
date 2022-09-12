@@ -99,7 +99,6 @@ export interface Repository {
   openIssues: number;
   url: string;
 }
-
 export interface RepositoryData {
   id: string;
   full_name: string;
@@ -113,6 +112,13 @@ export interface RepositoryData {
 export type Repositories = {
   repositories: Repository[];
 };
+
+export interface ProfileData {
+  gists_url: string;
+  repositories_url: string;
+  public_repos: number;
+  public_gists: number;
+}
 
 // Views
 export interface Views {
