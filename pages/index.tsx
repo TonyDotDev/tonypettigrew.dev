@@ -80,13 +80,13 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   });
 
   const topThreeSlugs = await (
-    await prisma.views.findMany({ orderBy: [{ count: "desc" }], take: 3 })
+    await prisma.blogViews.findMany({ orderBy: [{ count: "desc" }], take: 3 })
   ).map((post) => post.slug);
 
   const posts: Post[] = await getClient(preview).fetch(threePostsQuery, {
-    slug_1: topThreeSlugs[0],
-    slug_2: topThreeSlugs[1],
-    slug_3: topThreeSlugs[2],
+    slug_1: topThreeSlugs[0] || "",
+    slug_2: topThreeSlugs[1] || "",
+    slug_3: topThreeSlugs[2] || "",
   });
 
   const orderedPosts = posts.map((_post, index) => {

@@ -12,7 +12,14 @@ datasource db {
   referentialIntegrity = "prisma"
 }
 
-model views {
-  slug  String @id @db.VarChar(128)
-  count BigInt @default(1)
+model SnippetViews {
+  slug      String   @id @db.VarChar(128)
+  count     BigInt   @default(1)
+  createdAt DateTime @default(now())
+}
+
+model BlogViews {
+  slug      String   @id @db.VarChar(128)
+  count     BigInt   @default(1)
+  createdAt DateTime @default(now())
 }

@@ -6,15 +6,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const slug = req?.query?.slug?.toString() || "";
 
     if (req.method === "GET") {
-      const blogPostViews = await prisma.views.findUnique({
+      const views = await prisma.blogViews.findUnique({
         where: {
           slug,
         },
       });
 
-      return res.status(200).json({ total: blogPostViews?.count.toString() || 0 });
+      return res.status(200).json({ total: views?.count.toString() || 0 });
     } else if (req.method === "POST") {
-      const blogPostViews = await prisma.views.upsert({
+      const views = await prisma.blogViews.upsert({
         where: { slug },
         create: {
           slug,
@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
 
       return res.status(200).json({
-        total: blogPostViews.count.toString() || 0,
+        total: views.count.toString() || 0,
       });
     } else
       return res.status(400).json({
