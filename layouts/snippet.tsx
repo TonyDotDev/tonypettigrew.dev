@@ -25,7 +25,7 @@ export default function SnippetLayout({
             </h1>
             <p className='text-gray-700 dark:text-gray-300 mb-2'>{snippet.description}</p>
             <p className='mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0'>
-              <ViewCounter slug={snippet.slug} type='blog' />
+              <ViewCounter slug={snippet.slug} type='snippet' />
             </p>
           </div>
           <div className='mt-2 sm:mt-0'>

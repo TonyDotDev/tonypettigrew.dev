@@ -5,11 +5,11 @@ import { Views } from "lib/types";
 import MetricCard from "components/metrics/Card";
 import { clientUrl } from "config";
 
-export default function BlogViewsCard() {
-  const { data } = useSWR<Views>("/api/views/blog", fetcher);
+export default function SnippetViews() {
+  const { data } = useSWR<Views>("/api/views/snippet", fetcher);
 
   const blogViews = new Number(data?.total);
-  const link = `${clientUrl}/blog`;
+  const link = `${clientUrl}/snippets`;
 
-  return <MetricCard header='Total Blog Views' link={link} metric={blogViews} />;
+  return <MetricCard header='Total Snippet Views' link={link} metric={blogViews} />;
 }
