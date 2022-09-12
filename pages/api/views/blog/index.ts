@@ -3,7 +3,7 @@ import prisma from "lib/prisma";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const totalViewCount = await prisma.views.aggregate({
+    const totalViewCount = await prisma.blogViews.aggregate({
       _sum: {
         count: true,
       },

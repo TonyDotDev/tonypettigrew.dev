@@ -1,6 +1,7 @@
 import Image from "next/future/image";
 
 import Container, { CustomMeta } from "components/Container";
+import ViewCounter from "components/ViewCounter";
 import type { PropsWithChildren } from "react";
 import { Snippet } from "lib/types";
 import { urlForImage } from "lib/sanity";
@@ -22,7 +23,10 @@ export default function SnippetLayout({
             <h1 className='font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white'>
               {snippet.title}
             </h1>
-            <p className='text-gray-700 dark:text-gray-300'>{snippet.description}</p>
+            <p className='text-gray-700 dark:text-gray-300 mb-2'>{snippet.description}</p>
+            <p className='mt-2 text-sm text-gray-600 dark:text-gray-400 min-w-32 md:mt-0'>
+              <ViewCounter slug={snippet.slug} type='blog' />
+            </p>
           </div>
           <div className='mt-2 sm:mt-0'>
             <Image
