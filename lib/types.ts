@@ -114,8 +114,6 @@ export type Repositories = {
 };
 
 export interface ProfileData {
-  gists_url: string;
-  repositories_url: string;
   public_repos: number;
   public_gists: number;
 }
