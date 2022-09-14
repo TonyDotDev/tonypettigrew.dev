@@ -1,8 +1,21 @@
-import React from "react";
-import GitHubCalendar from "react-github-calendar";
+import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
 import { useTheme } from "next-themes";
 
 import useWindowSize from "hooks/useWindowSize";
+import useMounted from "hooks/useMounted";
+
+/**
+ * * These components need to be dynamically imported instead of SSR'd because the tooltip data- information is
+ * * generated dynamically on the front end by the calendar component.
+ * */
+const GitHubCalendar = dynamic(() => import("react-github-calendar"), {
+  ssr: false,
+});
+
+const ReactTooltip = dynamic(() => import("react-tooltip"), {
+  ssr: false,
+});
 
 interface Day {
   date: string;
@@ -13,9 +26,10 @@ interface Day {
 export default function ContributionGraph() {
   const { width } = useWindowSize();
   const { resolvedTheme } = useTheme();
+  const { isMounted } = useMounted();
 
-  const isMediumCalendar = width && width > 450;
-  const isLargeCalendar = width && width > 700;
+  const isMediumCalendar = isMounted && width && width > 450;
+  const isLargeCalendar = isMounted && width && width > 700;
 
   // useCallback because it has a dependency from useWindowSize which fires on resize
   const transformData = React.useCallback(
@@ -55,11 +69,15 @@ export default function ContributionGraph() {
   };
 
   return (
-    <GitHubCalendar
-      hideTotalCount={!isLargeCalendar}
-      username='TonyDotDev'
-      transformData={resizeCalendar}
-      theme={theme}
-    />
+    <Suspense fallback={null}>
+      <GitHubCalendar
+        hideTotalCount={!isLargeCalendar}
+        username="TonyDotDev"
+        transformData={resizeCalendar}
+        theme={theme}
+      >
+        <ReactTooltip html />
+      </GitHubCalendar>
+    </Suspense>
   );
 }

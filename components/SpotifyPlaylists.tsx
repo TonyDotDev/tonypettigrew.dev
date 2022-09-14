@@ -5,9 +5,11 @@ import { Playlists } from "lib/types";
 import Playlist from "components/Playlist";
 
 export default function SpotifyPlaylists() {
-  const { data } = useSWR<Playlists>("/api/get-playlists", fetcher, { dedupingInterval: Infinity });
+  const { data } = useSWR<Playlists>("/api/get-playlists", fetcher, {
+    dedupingInterval: Infinity,
+  });
 
-  if (!data) {
+  if (!data?.playlists) {
     return null;
   }
 
