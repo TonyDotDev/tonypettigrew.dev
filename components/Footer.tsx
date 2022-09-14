@@ -37,8 +37,8 @@ export default function Footer() {
           <ExternalLink href='https://github.com/tonypettigrew'>GitHub</ExternalLink>
         </div>
         <div className='flex flex-col space-y-4'>
-          <Link href='/projects'>
-            <a className='text-gray-500 hover:text-gray-600 transition'>Projects</a>
+          <Link href='/portfolio'>
+            <a className='text-gray-500 hover:text-gray-600 transition'>Portfolio</a>
           </Link>
           <Link href='/blog'>
             <a className='text-gray-500 hover:text-gray-600 transition'>Blog</a>

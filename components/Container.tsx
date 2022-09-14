@@ -77,7 +77,7 @@ export default function Container({ customMeta = {}, children }: Props) {
           <div className='ml-[-0.60rem]'>
             <NavItem href='/' text='Home' />
             {/* <NavItem href='/dashboard' text='Dashboard' /> */}
-            <NavItem href='/projects' text='Projects' />
+            <NavItem href='/portfolio' text='Portfolio' />
             <NavItem href='/blog' text='Blog' />
             <NavItem href='/snippets' text='Snippets' />
             <NavItem href='/dashboard' text='Dashboard' />
