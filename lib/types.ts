@@ -24,7 +24,29 @@ export type Snippet = {
   categories: Category[];
 };
 
+// Category
 export interface Category {
+  _id: string;
+  slug: string;
+  label: string;
+}
+
+// Portfolio Projects
+export interface Project {
+  _id: string;
+  title: string;
+  description: string;
+  slug: string;
+  company: string | undefined;
+  isProfessional: boolean;
+  githubUrl: string | undefined;
+  url: string | undefined;
+  coverImage: string;
+  technologies: Technology[];
+}
+
+// Technology
+export interface Technology {
   _id: string;
   slug: string;
   label: string;
@@ -84,7 +106,8 @@ export interface Playlist {
   playlistUrl: string;
 }
 
-export interface PlaylistData extends Omit<Playlist, "playlistImage | playlistUrl"> {
+export interface PlaylistData
+  extends Omit<Playlist, "playlistImage | playlistUrl"> {
   images: ImagesData[];
   external_urls: ExternalUrlsData;
 }
