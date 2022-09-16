@@ -48,21 +48,21 @@ export default function Portfolio({ projects }: Props) {
           Portfolio
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
-          My portfolio, which contains&nbsp;
+          My portfolio, which contains{" "}
           <a
             href="#professional"
             className="text-gray-900 dark:text-gray-100 underline"
           >
             professional
-          </a>
-          &nbsp;and&nbsp;
+          </a>{" "}
+          and{" "}
           <a
             href="#personal"
             className="text-gray-900 dark:text-gray-100 underline"
           >
             personal
-          </a>
-          &nbsp;portfolio projects.
+          </a>{" "}
+          portfolio projects.
         </p>
         <form
           name="Filter portfolio projects"
