@@ -7,12 +7,13 @@ import SearchInput from "components/SearchInput";
 import { allCategoriesQuery, allSnippetsQuery } from "lib/queries";
 import { getClient } from "lib/sanity-server";
 import { Snippet, Category } from "lib/types";
+import useInput from "hooks/useInput";
 
 export default function Snippets({
   snippets,
   categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [searchValue, setSearchValue] = useState<string>("");
+  const { bind: searchBind, value: searchValue } = useInput();
   const [categoryValue, setCategoryValue] = useState<string>("");
   const filteredSnippets = snippets.filter(
     (snippet: Snippet) =>
@@ -21,10 +22,6 @@ export default function Snippets({
         category.slug.toLowerCase().includes(categoryValue.toLowerCase())
       )
   );
-
-  const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
 
   const onCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setCategoryValue(e.target.value);
@@ -58,9 +55,9 @@ export default function Snippets({
         <div className="relative w-full mb-4 flex space-x-1">
           <SearchInput
             ariaLabel="Search Snippets"
-            onChange={onSearchChange}
             placeholder="Search snippets"
             fullWidth
+            {...searchBind}
           />
           <select
             onChange={onCategoryChange}
