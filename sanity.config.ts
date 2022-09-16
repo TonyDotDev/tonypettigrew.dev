@@ -130,6 +130,11 @@ export default createConfig({
             type: "boolean",
           },
           {
+            name: "npmUrl",
+            title: "NPM Url",
+            type: "url",
+          },
+          {
             name: "githubUrl",
             title: "Github Url",
             type: "url",

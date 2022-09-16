@@ -84,8 +84,5 @@ export default function dashboard({ projects }: Props) {
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const projects: Project[] = await getClient(preview).fetch(allProjectsQuery);
-
-  console.log(projects, "TEST");
-
   return { props: { projects } };
 };

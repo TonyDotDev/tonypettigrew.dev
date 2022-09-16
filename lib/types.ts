@@ -37,10 +37,11 @@ export interface Project {
   title: string;
   description: string;
   slug: string;
-  company: string | undefined;
+  company: string | null;
   isProfessional: boolean;
-  githubUrl: string | undefined;
-  url: string | undefined;
+  githubUrl: string | null;
+  npmUrl: string | null;
+  url: string | null;
   coverImage: string;
   technologies: Technology[];
 }

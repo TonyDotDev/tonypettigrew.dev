@@ -98,6 +98,7 @@ const projectFields = `
   description,
   isProfessional,
   githubUrl,
+  npmUrl,
   url,
   coverImage,
   "slug": slug.current,
