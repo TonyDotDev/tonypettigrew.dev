@@ -97,12 +97,96 @@ export default createConfig({
         ],
       },
       {
+        name: "project",
+        title: "Project",
+        type: "document",
+        fields: [
+          {
+            name: "title",
+            title: "Title",
+            type: "string",
+          },
+          {
+            name: "slug",
+            title: "Slug",
+            type: "slug",
+            options: {
+              source: "title",
+            },
+          },
+          {
+            name: "company",
+            title: "Company",
+            type: "string",
+          },
+          {
+            name: "description",
+            title: "Description",
+            type: "string",
+          },
+          {
+            name: "isProfessional",
+            title: "Professional",
+            type: "boolean",
+          },
+          {
+            name: "npmUrl",
+            title: "NPM Url",
+            type: "url",
+          },
+          {
+            name: "githubUrl",
+            title: "Github Url",
+            type: "url",
+          },
+          {
+            name: "url",
+            title: "Url",
+            type: "url",
+          },
+          {
+            name: "coverImage",
+            title: "Cover Image",
+            type: "image",
+          },
+          {
+            name: "technologies",
+            title: "Technologies",
+            type: "array",
+            of: [{ type: "reference", to: [{ type: "technology" }] }],
+          },
+        ],
+      },
+      {
         name: "category",
         title: "Category",
         type: "document",
         fields: [
           { name: "label", type: "string", title: "Label" },
-          { name: "slug", type: "slug", title: "Slug" },
+          {
+            name: "slug",
+            type: "slug",
+            title: "Slug",
+            options: {
+              source: "label",
+            },
+          },
+        ],
+      },
+      {
+        name: "technology",
+        title: "Technology",
+        type: "document",
+        fields: [
+          { name: "label", type: "string", title: "Label" },
+          {
+            name: "slug",
+            type: "slug",
+            title: "Slug",
+            options: {
+              source: "label",
+            },
+          },
         ],
       },
     ],

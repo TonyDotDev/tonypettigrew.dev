@@ -1,3 +1,5 @@
+// Blog Posts
+
 const postFields = `
   _id,
   title,
@@ -34,6 +36,8 @@ export const limitedPostsQuery = `
 *[_type == "post"] | order(date desc, _updatedAt desc) [$from..$to] {
   ${postFields}
 }`;
+
+// Code Snippets
 
 const snippetFields = `
   _id,
@@ -73,6 +77,8 @@ export const snippetSlugsQuery = `
 *[_type == "snippet" && defined(slug.current)][].slug.current
 `;
 
+// Categories
+
 const categoryFields = `
   _id,
   "slug": slug.current,
@@ -81,5 +87,30 @@ const categoryFields = `
 
 export const allCategoriesQuery = `
 *[_type == "category"] | order(date desc, _updatedAt desc) {
+  ${categoryFields}
+}`;
+
+// Portfolio Projects
+const projectFields = `
+  _id,
+  title,
+  company,
+  description,
+  isProfessional,
+  githubUrl,
+  npmUrl,
+  url,
+  coverImage,
+  "slug": slug.current,
+  technologies[]->{ _id, label, "slug": slug.current }
+`;
+export const allProjectsQuery = `
+*[_type == "project"] | order(date desc, _updatedAt desc) {
+  ${projectFields}
+}`;
+
+// Technologies
+export const allTechnologiesQuery = `
+*[_type == "technology"] | order(date desc, _updatedAt desc) {
   ${categoryFields}
 }`;
