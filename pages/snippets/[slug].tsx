@@ -5,7 +5,7 @@ import SnippetLayout from "layouts/snippet";
 import { snippetsQuery, snippetSlugsQuery } from "lib/queries";
 import { sanityClient, getClient } from "lib/sanity-server";
 import { mdxToHtml } from "lib/mdx";
-import { Snippet } from "lib/types";
+import { Snippet } from "types";
 
 export default function SnippetsPage({ snippet }: { snippet: Snippet }) {
   return (

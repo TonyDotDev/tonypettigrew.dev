@@ -7,7 +7,7 @@ import SearchInput from "components/SearchInput";
 import PageLayout from "layouts/page";
 import { postsQuery } from "lib/queries";
 import { getClient } from "lib/sanity-server";
-import { Post } from "lib/types";
+import { Post } from "types";
 import useInput from "hooks/useInput";
 
 export default function Blog({

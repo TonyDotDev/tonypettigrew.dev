@@ -6,7 +6,7 @@ import BlogPosts from "components/BlogPosts";
 import Snippets from "components/Snippets";
 import { getClient } from "lib/sanity-server";
 import { limitedSnippetsQuery } from "lib/queries";
-import { Snippet, Post } from "lib/types";
+import { Snippet, Post } from "types";
 import PageWidth from "components/layout/PageWidth";
 import Section from "components/home/Section";
 import Landing from "components/home/Landing";

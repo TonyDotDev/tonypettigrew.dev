@@ -1,7 +1,7 @@
 import prisma from "lib/prisma";
 import { threePostsQuery } from "lib/queries";
 import { getClient } from "lib/sanity-server";
-import { Post } from "lib/types";
+import { Post } from "types";
 
 export default async function getPopularPosts() {
   const topThreeSlugs = await (

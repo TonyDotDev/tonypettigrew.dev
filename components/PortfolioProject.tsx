@@ -1,5 +1,5 @@
 import { ExternalLink } from "./svg";
-import { Project } from "lib/types";
+import { Project } from "types";
 
 interface ColorClasses {
   bg: string;

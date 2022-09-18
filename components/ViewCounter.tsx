@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import useSWR from "swr";
 
 import fetcher from "lib/fetcher";
-import { Views } from "lib/types";
+import { Views } from "types";
 
 interface Props {
   slug: string;
