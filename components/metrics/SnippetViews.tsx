@@ -1,8 +1,8 @@
 import useSWR from "swr";
 
 import fetcher from "lib/fetcher";
-import { Views } from "lib/types";
-import MetricCard from "components/metrics/Card";
+import { Views } from "types";
+import { MetricCard } from "components/metrics";
 import { clientUrl } from "config";
 
 export default function SnippetViews() {
@@ -11,5 +11,7 @@ export default function SnippetViews() {
   const blogViews = new Number(data?.total);
   const link = `${clientUrl}/snippets`;
 
-  return <MetricCard header='Total Snippet Views' link={link} metric={blogViews} />;
+  return (
+    <MetricCard header="Total Snippet Views" link={link} metric={blogViews} />
+  );
 }

@@ -1,11 +1,11 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import { MDXRemote } from "next-mdx-remote";
 
 import { mdxToHtml } from "lib/mdx";
 import { postSlugsQuery, postQuery } from "lib/queries";
 import { sanityClient, getClient } from "lib/sanity-server";
-import { Post } from "lib/types";
 import BlogLayout from "layouts/blog";
+import type { Post } from "types";
 
 export default function PostPage({ post }: { post: Post }) {
   return (
@@ -24,8 +24,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params, preview = false }) => {
-  const { post } = await getClient(preview).fetch(postQuery, { slug: params?.slug });
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview = false,
+}) => {
+  const { post } = await getClient(preview).fetch(postQuery, {
+    slug: params?.slug,
+  });
 
   if (!post) {
     return { notFound: true };

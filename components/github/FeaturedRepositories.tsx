@@ -1,8 +1,8 @@
 import useSWR from "swr";
 
-import Repository from "./Repository";
+import { Repository } from "components/github";
 import fetcher from "lib/fetcher";
-import { Repositories } from "lib/types";
+import { Repositories } from "types";
 
 export default function FeaturedRepositories() {
   const { data } = useSWR<Repositories>("/api/featured-repos", fetcher, {
@@ -20,9 +20,13 @@ export default function FeaturedRepositories() {
   ];
 
   return (
-    <div className='space-y-4 w-full flex flex-col'>
+    <div className="space-y-4 w-full flex flex-col">
       {data.repositories.map((repository, index) => (
-        <Repository key={repository.id} gradient={gradientClasses[index]} {...repository} />
+        <Repository
+          key={repository.id}
+          gradient={gradientClasses[index]}
+          {...repository}
+        />
       ))}
     </div>
   );

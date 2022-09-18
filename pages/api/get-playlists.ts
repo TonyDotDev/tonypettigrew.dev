@@ -1,6 +1,6 @@
 import { type NextRequest } from "next/server";
 import { getPlaylists } from "lib/spotify";
-import { PlaylistData, Playlist } from "lib/types";
+import { PlaylistData, Playlist } from "types";
 
 export const config = {
   runtime: "experimental-edge",

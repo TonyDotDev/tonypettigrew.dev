@@ -1,6 +1,7 @@
 import { type NextRequest } from "next/server";
+
 import { getRepositoryFactory } from "lib/github";
-import { Repository, RepositoryData } from "lib/types";
+import type { Repository, RepositoryData } from "types";
 
 export const config = {
   runtime: "experimental-edge",
@@ -31,36 +32,6 @@ export default async function handler(req: NextRequest) {
       url: response.html_url,
     };
   });
-
-  // [
-  //   {
-  //     id: "fds",
-  //     fullName: "TonyDotDev/express-ts-boilerplate",
-  //     description: "Boilerplate repository for express back end in node.",
-  //     stargazers: 0,
-  //     watchers: 0,
-  //     openIssues: 3,
-  //     url: "https://www.tonypettigrew.dev",
-  //   },
-  //   {
-  //     id: "fds",
-  //     fullName: "TonyDotDev/express-ts-boilerplate",
-  //     description: "Boilerplate repository for express back end in node.",
-  //     stargazers: 0,
-  //     watchers: 0,
-  //     openIssues: 3,
-  //     url: "https://www.tonypettigrew.dev",
-  //   },
-  //   {
-  //     id: "fds",
-  //     fullName: "TonyDotDev/express-ts-boilerplate",
-  //     description: "Boilerplate repository for express back end in node.",
-  //     stargazers: 0,
-  //     watchers: 0,
-  //     openIssues: 3,
-  //     url: "https://www.tonypettigrew.dev",
-  //   },
-  // ],
 
   return new Response(
     JSON.stringify({

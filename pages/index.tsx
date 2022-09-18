@@ -1,15 +1,15 @@
-import { Suspense } from "react";
-import Image from "next/future/image";
 import type { GetStaticProps } from "next";
 
-import Container from "components/Container";
-import FeaturedRepositories from "components/FeaturedRepositories";
-import BlogPosts from "components/BlogPosts";
-import Snippets from "components/Snippets";
+import { Container } from "components/container";
+import { FeaturedRepositories } from "components/github";
+import BlogPosts from "components/blog/BlogPosts";
+import { Snippets } from "components/snippet";
+import { PageWidth } from "components/layout";
+import { Landing, Section } from "components/home";
 import { getClient } from "lib/sanity-server";
-import { limitedSnippetsQuery, threePostsQuery } from "lib/queries";
-import { Snippet, Post } from "lib/types";
-import prisma from "lib/prisma";
+import { limitedSnippetsQuery } from "lib/queries";
+import getPopularPosts from "utils/getPopularPosts";
+import type { Snippet, Post } from "types";
 
 interface Props {
   snippets: Snippet[];
@@ -18,58 +18,22 @@ interface Props {
 
 export default function Home({ snippets, posts }: Props) {
   return (
-    <Suspense fallback={null}>
-      <Container>
-        <div className="flex flex-col justify-center items-start max-w-2xl border-gray-200 dark:border-gray-700 mx-auto pb-16">
-          <div className="flex flex-col items-center justify-center w-full">
-            <div className="w-[80px] sm:w-[120px] relative mb-8">
-              <Image
-                alt="Tony Pettigrew"
-                height={176}
-                width={176}
-                src="/avatar.jpeg"
-                sizes="30vw"
-                priority
-                className="rounded-full filter grayscale"
-              />
-            </div>
-            <div className="flex flex-col pr-8 text-center">
-              <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
-                Tony Pettigrew
-              </h1>
-              <h2 className="text-gray-700 dark:text-gray-200 mb-4">
-                Software Engineer focused on{" "}
-                <span className="font-semibold">JavaScript</span>
-              </h2>
-              <p className="text-gray-600 dark:text-gray-400 mb-16">
-                Enthusiastically sharing my knowledge and experience in the
-                industry through blogs and code snippets.
-              </p>
-            </div>
-          </div>
-          <div className="space-y-20">
-            <section>
-              <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
-                Featured Repositories
-              </h3>
-              <FeaturedRepositories />
-            </section>
-            <section>
-              <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
-                Popular Blog Posts
-              </h3>
-              <BlogPosts posts={posts} />
-            </section>
-            <section>
-              <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-6 text-black dark:text-white">
-                Newest Snippets
-              </h3>
-              <Snippets snippets={snippets} />
-            </section>
-          </div>
+    <Container>
+      <PageWidth>
+        <Landing />
+        <div className="space-y-20">
+          <Section title="Featured Repositories">
+            <FeaturedRepositories />
+          </Section>
+          <Section title="Popular Blog Posts">
+            <BlogPosts posts={posts} />
+          </Section>
+          <Section title="Newest Snippets">
+            <Snippets snippets={snippets} />
+          </Section>
         </div>
-      </Container>
-    </Suspense>
+      </PageWidth>
+    </Container>
   );
 }
 
@@ -82,28 +46,12 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
     }
   );
 
-  const topThreeSlugs = await (
-    await prisma.blogViews.findMany({ orderBy: [{ count: "desc" }], take: 3 })
-  ).map((post) => post.slug);
-
-  const posts: Post[] = await getClient(preview).fetch(threePostsQuery, {
-    slug_1: topThreeSlugs[0] || "",
-    slug_2: topThreeSlugs[1] || "",
-    slug_3: topThreeSlugs[2] || "",
-  });
-
-  const orderedPosts = posts
-    .map((_post, index) => {
-      const slug = topThreeSlugs[index];
-      const post = posts.find((post) => post.slug === slug);
-      return post;
-    })
-    .filter((post) => !!post);
+  const posts: Post[] = await getPopularPosts();
 
   return {
     props: {
-      snippets: snippets || [],
-      posts: orderedPosts || [],
+      snippets,
+      posts,
     },
   };
 };

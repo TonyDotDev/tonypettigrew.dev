@@ -3,9 +3,10 @@ import { useRouter } from "next/router";
 import NextLink from "next/link";
 import cn from "classnames";
 
-import Footer from "./Footer";
-import DarkModeToggle from "components/DarkModeToggle";
+import Footer from "components/container/Footer";
+import DarkModeToggle from "components/container/DarkModeToggle";
 import MobileMenu from "components/MobileMenu";
+import type { CustomMeta } from "types";
 
 interface NavItemProps {
   href: string;
@@ -30,13 +31,6 @@ function NavItem({ href, text }: NavItemProps) {
       </a>
     </NextLink>
   );
-}
-
-export interface CustomMeta {
-  date?: string;
-  title?: string;
-  description?: string;
-  type?: string;
 }
 
 interface Props {

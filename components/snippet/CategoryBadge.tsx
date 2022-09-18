@@ -14,7 +14,10 @@ export default function CategoryBadge({
     if (handleClick) handleClick(slug);
   };
   return (
-    <button className='text-sm px-1 border rounded border-blue-500 text-blue-500' onClick={onClick}>
+    <button
+      className="text-sm px-1 border rounded border-blue-500 text-blue-500"
+      onClick={onClick}
+    >
       {label}
     </button>
   );
