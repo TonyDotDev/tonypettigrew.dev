@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import CategoryBadge from "./CategoryBadge";
-import { Category } from "types";
+import type { Category } from "types";
 
 export type HandleCategoryBadgeClick = (slug: string) => void;
 

@@ -1,8 +1,8 @@
 import useSWR from "swr";
 
 import fetcher from "lib/fetcher";
-import { ProfileData } from "types";
-import MetricCard from "components/metrics/Card";
+import { MetricCard } from "components/metrics";
+import type { ProfileData } from "types";
 
 const REPOSITORIES_LINK = "https://github.com/TonyDotDev?tab=repositories";
 const GISTS_LINK = "https://gist.github.com/TonyDotDev";

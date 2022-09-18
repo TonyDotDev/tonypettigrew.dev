@@ -4,7 +4,7 @@ import { animate } from "motion";
 import Image from "next/image";
 
 import fetcher from "lib/fetcher";
-import { NowPlayingSong } from "types";
+import type { NowPlayingSong } from "types";
 
 function AnimatedBars() {
   useEffect(() => {

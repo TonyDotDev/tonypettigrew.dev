@@ -1,6 +1,6 @@
 import CodeSnippet from "./CodeSnippet";
 import GoToLink from "components/GoToLink";
-import { Snippet } from "types";
+import type { Snippet } from "types";
 
 interface Props {
   snippets: Snippet[];

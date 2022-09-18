@@ -1,16 +1,15 @@
 import type { GetStaticProps } from "next";
 
-import Container from "components/Container";
-import FeaturedRepositories from "components/FeaturedRepositories";
-import BlogPosts from "components/BlogPosts";
-import Snippets from "components/Snippets";
+import { Container } from "components/container";
+import { FeaturedRepositories } from "components/github";
+import BlogPosts from "components/blog/BlogPosts";
+import { Snippets } from "components/snippet";
+import { PageWidth } from "components/layout";
+import { Landing, Section } from "components/home";
 import { getClient } from "lib/sanity-server";
 import { limitedSnippetsQuery } from "lib/queries";
-import { Snippet, Post } from "types";
-import PageWidth from "components/layout/PageWidth";
-import Section from "components/home/Section";
-import Landing from "components/home/Landing";
 import getPopularPosts from "utils/getPopularPosts";
+import type { Snippet, Post } from "types";
 
 interface Props {
   snippets: Snippet[];

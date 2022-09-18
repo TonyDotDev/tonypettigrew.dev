@@ -1,6 +1,4 @@
-import Link from "next/link";
-
-import { Repository as Props } from "lib/types";
+import type { Repository as Props } from "types";
 
 interface RepositoryProps extends Props {
   gradient: string;
@@ -19,19 +17,19 @@ export default function Repository({
     <a
       href={url}
       className={`p-1 flex items-center justify-center rounded ${gradient}`}
-      target='_blank'
-      rel='noopener noreferrer'
+      target="_blank"
+      rel="noopener noreferrer"
     >
-      <div className='space-y-6 w-full h-full bg-gray-50 dark:bg-neutral-900 p-4'>
+      <div className="space-y-6 w-full h-full bg-gray-50 dark:bg-neutral-900 p-4">
         <div>
-          <h4 className='text-xl'>{fullName}</h4>
-          <p className='text-gray-600 dark:text-gray-400'>{description}</p>
+          <h4 className="text-xl">{fullName}</h4>
+          <p className="text-gray-600 dark:text-gray-400">{description}</p>
         </div>
 
-        <div className='border-b h-0 my-6 w-full border-gray-400' />
+        <div className="border-b h-0 my-6 w-full border-gray-400" />
 
-        <div className='flex align-center space-x-6 text-xs'>
-          <div className='flex space-x-1 items-center justify-center'>
+        <div className="flex align-center space-x-6 text-xs">
+          <div className="flex space-x-1 items-center justify-center">
             <span>{stargazers}</span>
             <span>Stars</span>
 
@@ -49,7 +47,7 @@ export default function Repository({
               <polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'></polygon>
             </svg> */}
           </div>
-          <div className='flex space-x-1 items-center justify-center'>
+          <div className="flex space-x-1 items-center justify-center">
             <span>{watchers}</span>
             <span>Watchers</span>
             {/* <svg
@@ -67,7 +65,7 @@ export default function Repository({
               <circle cx='12' cy='12' r='3'></circle>
             </svg> */}
           </div>
-          <div className='flex space-x-1 items-center justify-center'>
+          <div className="flex space-x-1 items-center justify-center">
             <span>{openIssues}</span>
             <span>Open issues</span>
             {/* <svg

@@ -1,14 +1,13 @@
-import { GetStaticProps } from "next";
+import type { GetStaticProps } from "next";
 
-import type { CustomMeta } from "components/Container";
 import PortfolioProject from "components/PortfolioProject";
 import SearchInput from "components/SearchInput";
 import { getClient } from "lib/sanity-server";
-import { Project } from "lib/types";
 import { allProjectsQuery } from "lib/queries";
 import useInput from "hooks/useInput";
 import React from "react";
 import PageLayout from "layouts/page";
+import type { Project, CustomMeta } from "types";
 
 const Description = () => (
   <>

@@ -2,9 +2,9 @@ import { Suspense } from "react";
 import { parseISO, format } from "date-fns";
 import Image from "next/future/image";
 
-import Container, { CustomMeta } from "components/Container";
+import { Container } from "components/container";
 import ViewCounter from "components/ViewCounter";
-import { Post } from "types";
+import { Post, CustomMeta } from "types";
 
 interface Props {
   children: React.ReactNode;

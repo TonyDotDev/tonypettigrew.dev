@@ -1,14 +1,13 @@
-import { Suspense, useState } from "react";
-import { InferGetStaticPropsType, GetStaticProps } from "next";
+import { Suspense } from "react";
+import type { InferGetStaticPropsType, GetStaticProps } from "next";
 
-import Container, { CustomMeta } from "components/Container";
-import BlogPost from "components/BlogPost";
+import { BlogPost } from "components/blog";
 import SearchInput from "components/SearchInput";
 import PageLayout from "layouts/page";
 import { postsQuery } from "lib/queries";
 import { getClient } from "lib/sanity-server";
-import { Post } from "types";
 import useInput from "hooks/useInput";
+import type { Post, CustomMeta } from "types";
 
 export default function Blog({
   posts,

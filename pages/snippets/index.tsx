@@ -1,14 +1,13 @@
 import { useState, Suspense } from "react";
-import { InferGetStaticPropsType } from "next";
+import type { InferGetStaticPropsType } from "next";
 
-import Container, { CustomMeta } from "components/Container";
-import CodeSnippet, { HandleCategoryBadgeClick } from "components/CodeSnippet";
+import { CodeSnippet, HandleCategoryBadgeClick } from "components/snippet";
 import SearchInput from "components/SearchInput";
 import { allCategoriesQuery, allSnippetsQuery } from "lib/queries";
 import { getClient } from "lib/sanity-server";
-import { Snippet, Category } from "lib/types";
 import useInput from "hooks/useInput";
 import PageLayout from "layouts/page";
+import type { Snippet, Category, CustomMeta } from "types";
 
 export default function Snippets({
   snippets,

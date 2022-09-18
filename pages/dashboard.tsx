@@ -1,10 +1,12 @@
-import Container, { CustomMeta } from "components/Container";
-import SpotifyPlaylists from "components/SpotifyPlaylists";
-import BlogViews from "components/metrics/BlogViews";
-import SnippetViews from "components/metrics/SnippetViews";
-import Github from "components/metrics/Github";
-import ContributionGraph from "components/metrics/ContributionGraph";
+import { SpotifyPlaylists } from "components/spotify";
+import {
+  BlogViews,
+  SnippetViews,
+  Github,
+  ContributionGraph,
+} from "components/metrics";
 import PageLayout from "layouts/page";
+import type { CustomMeta } from "types";
 
 const Description = () => (
   <>

@@ -1,6 +1,6 @@
-import BlogPost from "components/BlogPost";
+import { BlogPost } from "components/blog";
 import GoToLink from "components/GoToLink";
-import { Post } from "types";
+import type { Post } from "types";
 
 interface Props {
   posts: Post[];

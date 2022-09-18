@@ -1,8 +1,8 @@
 import useSWR from "swr";
 
 import fetcher from "lib/fetcher";
-import { Playlists } from "lib/types";
-import Playlist from "components/Playlist";
+import { Playlist } from "components/spotify";
+import type { Playlists } from "types";
 
 export default function SpotifyPlaylists() {
   const { data } = useSWR<Playlists>("/api/get-playlists", fetcher, {

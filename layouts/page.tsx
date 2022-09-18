@@ -1,9 +1,8 @@
 import React from "react";
 
-import Container, { CustomMeta } from "components/Container";
-import PageTitle from "components/layout/PageTitle";
-import PageDescription from "components/layout/PageDescription";
-import PageWidth from "components/layout/PageWidth";
+import { Container } from "components/container";
+import { PageTitle, PageDescription, PageWidth } from "components/layout";
+import type { CustomMeta } from "types";
 
 interface Props {
   customMeta?: CustomMeta;
