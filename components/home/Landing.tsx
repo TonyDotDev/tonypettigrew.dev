@@ -14,7 +14,7 @@ export default function Landing() {
           className="rounded-full filter grayscale"
         />
       </div>
-      <div className="flex flex-col pr-8 text-center">
+      <div className="flex flex-col text-center">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
           Tony Pettigrew
         </h1>
