@@ -1,10 +1,8 @@
 import React from "react";
 
-interface Props {
-  className?: string;
-}
+import { SvgProps } from "./types";
 
-export default function ExternalLink({ className }: Props) {
+export const ExternalLink = ({ className }: SvgProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -22,4 +20,4 @@ export default function ExternalLink({ className }: Props) {
       <line x1="10" y1="14" x2="21" y2="3"></line>
     </svg>
   );
-}
+};
