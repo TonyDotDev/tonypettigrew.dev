@@ -8,9 +8,9 @@ export const DownArrowButton = () => {
     <Link href="#featured-repositories">
       <a
         aria-label="scroll-down"
-        className="rounded-full border border-blue-500 p-4 relative hover:bg-blue-500"
+        className="rounded-full border border-green-500 p-4 relative hover:bg-green-500 hover:text-white dark:hover:text-black"
       >
-        <div className="absolute animate-ping rounded-full border border-blue-500 top-0 left-0 right-0 bottom-0 width-full height-full" />
+        <div className="absolute animate-ping rounded-full border border-green-500 top-0 left-0 right-0 bottom-0 width-full height-full" />
         <DownArrow className="relative animate-bounce top-[4px]" />
       </a>
     </Link>

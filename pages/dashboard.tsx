@@ -10,17 +10,9 @@ import type { CustomMeta } from "types";
 
 const Description = () => (
   <>
-    This is my personal dashboard, heavily inspired by{" "}
-    <a
-      href="https://leerob.io/dashboard"
-      rel="noreferrer"
-      target="_blank"
-      className="text-gray-900 dark:text-gray-100 underline"
-    >
-      Lee Robinson&apos;s Dashboard
-    </a>
-    . It utilizes Github, Spotify and my own API via headless functions to
-    display metrics about myself and this website.
+    This is a dashboard that tracks personal and website statistics. It utilizes
+    Github, Spotify and my own API via headless functions to display metrics
+    about myself and this website.
   </>
 );
 
