@@ -22,7 +22,7 @@ export default function Home({ snippets, posts }: Props) {
       <PageWidth>
         <Landing />
         <div className="space-y-20">
-          <Section title="Featured Repositories">
+          <Section title="Featured Repositories" id="featured-repositories">
             <FeaturedRepositories />
           </Section>
           <Section title="Popular Blog Posts">
