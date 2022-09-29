@@ -1,4 +1,5 @@
 import Image from "next/future/image";
+import { DownArrowButton } from "./DownArrowButton";
 
 export default function Landing() {
   return (
@@ -14,7 +15,7 @@ export default function Landing() {
           className="rounded-full filter grayscale"
         />
       </div>
-      <div className="flex flex-col text-center">
+      <div className="flex flex-col text-center mb-16">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-1 text-black dark:text-white">
           Tony Pettigrew
         </h1>
@@ -27,6 +28,7 @@ export default function Landing() {
           through blogs and code snippets.
         </p>
       </div>
+      <DownArrowButton />
     </div>
   );
 }
