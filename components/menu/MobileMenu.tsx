@@ -46,7 +46,7 @@ export default function MobileMenu() {
           )}
         >
           {menuItems.map((item: Item) => (
-            <MenuItem key="item.href" {...item} />
+            <MenuItem key={item.href} {...item} />
           ))}
         </ul>
       )}
