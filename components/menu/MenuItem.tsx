@@ -9,8 +9,6 @@ export default function MenuItem({ name, href }: Props) {
 
   const isSelectedRoute = pathname === href;
 
-  console.log(pathname, href, "TEST");
-
   return (
     <li
       className="border-b border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm font-semibold"
