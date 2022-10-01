@@ -1,4 +1,4 @@
-export default function Close(props: JSX.IntrinsicElements["svg"]) {
+export const Close = (props: JSX.IntrinsicElements["svg"]) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,4 +16,4 @@ export default function Close(props: JSX.IntrinsicElements["svg"]) {
       <line x1="6" y1="6" x2="18" y2="18"></line>
     </svg>
   );
-}
+};
