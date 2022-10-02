@@ -15,7 +15,7 @@ export default function Landing() {
             alt="Tony Pettigrew"
             height={176}
             width={176}
-            src="/avatar.jpeg"
+            src="/profile.jpeg"
             sizes="30vw"
             priority
             className="rounded-full filter grayscale"
