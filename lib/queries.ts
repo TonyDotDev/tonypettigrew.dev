@@ -37,6 +37,8 @@ export const limitedPostsQuery = `
   ${postFields}
 }`;
 
+export const postUpdate = `*[_type == "post" && _id == $id].slug.current`;
+
 // Code Snippets
 
 const snippetFields = `
@@ -76,6 +78,8 @@ export const mostRecentSnippet = `{
 export const snippetSlugsQuery = `
 *[_type == "snippet" && defined(slug.current)][].slug.current
 `;
+
+export const snippetUpdate = `*[_type == "snippet" && _id == $id].slug.current`;
 
 // Categories
 

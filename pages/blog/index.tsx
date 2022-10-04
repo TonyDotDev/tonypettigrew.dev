@@ -78,5 +78,5 @@ export default function Blog({
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   const posts: Post[] = await getClient(preview).fetch(postsQuery);
 
-  return { props: { posts } };
+  return { props: { posts }, revalidate: 10 };
 };

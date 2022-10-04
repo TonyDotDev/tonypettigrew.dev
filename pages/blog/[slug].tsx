@@ -38,5 +38,8 @@ export const getStaticProps: GetStaticProps = async ({
 
   const { html, readingTime } = await mdxToHtml(post.content);
 
-  return { props: { post: { ...post, content: html, readingTime } } };
+  return {
+    props: { post: { ...post, content: html, readingTime } },
+    revalidate: 10,
+  };
 };
