@@ -44,5 +44,6 @@ export const getStaticProps: GetStaticProps = async ({
         content: html,
       },
     },
+    revalidate: 10,
   };
 };

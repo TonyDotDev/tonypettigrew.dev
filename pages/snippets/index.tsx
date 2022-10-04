@@ -103,5 +103,5 @@ export async function getStaticProps({ preview = false }) {
     allCategoriesQuery
   );
 
-  return { props: { snippets, categories } };
+  return { props: { snippets, categories }, revalidate: 10 };
 }
