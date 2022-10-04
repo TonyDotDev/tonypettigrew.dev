@@ -1,7 +1,7 @@
 # tonypettigrew.dev
 
 - **Framework**: [Next.js](https://nextjs.org/)
-- **Database**: [Postgresql](https://www.postgresql.org/)
+- **Database**: [Bit.io](https://www.http://bit.io/)
 - **ORM**: [Prisma](https://prisma.io/)
 - **CMS**: [Sanity](https://www.sanity.io/)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
@@ -29,6 +29,10 @@ src
 +-- public            # public assets
 |
 +-- styles            # all app styles
+|
++-- types             # global types
+|
++-- utils             # utility modules
 ```
 
 ## Running Locally
@@ -39,7 +43,6 @@ This application was developed using Node v16.17.0
 git clone https://github.com/TonyDotDev/tonypettigrew.dev.git
 cd tonypettigrew.dev
 yarn
-yarn sanity-start
 yarn dev
 ```
 
