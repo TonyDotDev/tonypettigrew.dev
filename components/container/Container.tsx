@@ -42,8 +42,8 @@ export default function Container({ customMeta = {}, children }: Props) {
   const router = useRouter();
 
   const meta = {
-    title: "Tony Pettigrew - Developer, writer, creator.",
-    description: `Front-end developer, JavaScript enthusiast, and course creator.`,
+    title: "Tony Pettigrew - Developer, writer, music enthusiast.",
+    description: `Frontend developer, Javascript entusiast and a firm believe that there's no place like 127.0.0.1!`,
     image: "",
     type: "website",
     ...customMeta,
